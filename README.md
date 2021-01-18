@@ -22,3 +22,35 @@ docker run -p 19225:19225 nandeshwar/quote-java2
 ```
 http://localhost:19225/nks
 ```
+#### MySql Database setup in local using docker container
+1. Create empty folder which is used by MySql in Docker to store data
+```
+~/dev/dockers/mysql
+```
+2. Run Docker container
+```
+docker run --name quote2-mysql -p 3306:3306 -v ~/dev/dockers/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Krishna -e MYSQL_USER=Radha -e MYSQL_PASSWORD=Krishna -d mysql:8.0 --lower_case_table_names=1
+```
+Note: user and password
+```
+user    : root
+password: Krishna
+
+user    : Radha
+password: Krishna
+
+```
+
+3. connect to MySql using root password
+```
+docker exec -it quote2-mysql /bin/bash
+mysql -u root -pKrishna
+```
+
+4. connect to MySql using db user password
+```
+docker exec -it quote2-mysql /bin/bash
+mysql -u Radha -pKrishna
+```
+
+
