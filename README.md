@@ -31,6 +31,13 @@ http://localhost:19225/nks
 ```
 docker run --name quote2-mysql -p 3306:3306 -v ~/dev/dockers/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Krishna -e MYSQL_USER=Radha -e MYSQL_PASSWORD=Krishna -d mysql:8.0 --lower_case_table_names=1
 ```
+
+or 
+```
+docker-compose up -d
+mysql -u root -pKrishna
+mysql -u Radha -pKrishna
+```
 Note: user and password
 ```
 user    : root

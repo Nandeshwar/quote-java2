@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: quote2-mysql
+    restart: always
+    environment:
+      MYSQL_USER: Radha
+      MYSQL_PASSWORD: Krishna
+      MYSQL_ROOT_PASSWORD: Krishna
+    ports:
+      - "3306:3306"
+    volumes:
+      - ~/dev/dockers/mysql:/var/lib/mysql
