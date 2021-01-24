@@ -60,4 +60,15 @@ docker exec -it quote2-mysql /bin/bash
 mysql -u Radha -pKrishna
 ```
 
+#### Create database using root user
+```
+create database quotedb;
+```
+#### Grant Permission
+```
+GRANT ALL PRIVILEGES ON mysql.* TO 'Radha'@'%';
+GRANT ALL PRIVILEGES ON quotedb.* TO 'Radha'@'%';
+GRANT ALL PRIVILEGES ON sys.* TO 'Radha'@'%';
+```
+
 
