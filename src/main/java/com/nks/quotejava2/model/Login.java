@@ -1,17 +1,18 @@
 package com.nks.quotejava2.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String User;
-    private String Password;
+
+    @Column(name = "user")
+    private String user;
+
+    @Column(name = "password")
+    private String password;
 
     public long getId() {
         return id;
@@ -22,18 +23,18 @@ public class Login {
     }
 
     public String getUser() {
-        return User;
+        return user;
     }
 
     public void setUser(String user) {
-        User = user;
+        this.user = user;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 }

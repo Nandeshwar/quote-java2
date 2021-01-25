@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS `hibernate_sequence`;
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Table structure for table `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+
+CREATE TABLE `login` (
+  `id` bigint NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `user` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `info` (
+    `id` bigint PRIMARY KEY,
+    `title` VARCHAR(200) NOT NULL,
+    `info` VARCHAR(1000) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE `info_link2` (
+    `id` bigint PRIMARY KEY,
+    `link_id` bigint,
+    `link` VARCHAR(100),
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(link_id) REFERENCES INFO(ID)
+);
+
+insert into login(id, user, password) values(1, 'Radha', 'Krishna');
