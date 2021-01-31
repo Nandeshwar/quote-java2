@@ -1,5 +1,6 @@
 package com.nks.quotejava2.model.sqlite3;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,8 +13,10 @@ public class InfoSqlite {
 
     private String title;
     private String info;
-//    private Date createdAt;
-//    private Date updatedAt;
+    @Column(name = "created_at")
+    private String createdAt;
+    @Column(name = "updated_at")
+    private String updatedAt;
 
     public long getId() {
         return id;
@@ -39,19 +42,19 @@ public class InfoSqlite {
         this.info = info;
     }
 
-//    public Date getCreatedAt() {
-//        return createdAt;
-//    }
-//
-//    public void setCreatedAt(Date createdAt) {
-//        this.createdAt = createdAt;
-//    }
-//
-//    public Date getUpdatedAt() {
-//        return updatedAt;
-//    }
-//
-//    public void setUpdatedAt(Date updatedAt) {
-//        this.updatedAt = updatedAt;
-//    }
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
