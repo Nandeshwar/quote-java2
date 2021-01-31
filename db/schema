@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `hibernate_sequence`;
 
-CREATE TABLE `hibernate_sequence` (
+CREATE TABLE quotedb.`hibernate_sequence` (
   `next_val` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -10,14 +10,14 @@ CREATE TABLE `hibernate_sequence` (
 
 DROP TABLE IF EXISTS `login`;
 
-CREATE TABLE `login` (
+CREATE TABLE quotedb.`login` (
   `id` bigint NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `user` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `info` (
+CREATE TABLE quotedb.`info` (
     `id` bigint PRIMARY KEY,
     `title` VARCHAR(200) NOT NULL,
     `info` VARCHAR(1000) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `info` (
     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE `info_link2` (
+CREATE TABLE quotedb.`info_link2` (
     `id` bigint PRIMARY KEY,
     `link_id` bigint,
     `link` VARCHAR(100),
@@ -34,4 +34,24 @@ CREATE TABLE `info_link2` (
     FOREIGN KEY(link_id) REFERENCES INFO(ID)
 );
 
-insert into login(id, user, password) values(1, 'Radha', 'Krishna');
+insert into quotedb.login(id, user, password) values(1, 'Radha', 'Krishna');
+
+CREATE TABLE quotedb.`event_detail` (
+    `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+    `day` INTEGER NOT NULL,
+    `month` INTEGER NOT NULL,
+    `year` INTEGER NOT NULL,
+    `title` VARCHAR(200) NOT NULL,
+    `info` VARCHAR(1000) NOT NULL,
+    `type` VARCHAR(20) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE quotedb.`event_detail_link` (
+    `link_id` INTEGER,
+    `link` VARCHAR(100),
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(link_id) REFERENCES event_detail(ID)
+);

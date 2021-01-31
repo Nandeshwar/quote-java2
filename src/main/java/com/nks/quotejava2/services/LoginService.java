@@ -1,7 +1,7 @@
 package com.nks.quotejava2.services;
 
-import com.nks.quotejava2.model.Login;
-import com.nks.quotejava2.repositories.LoginRepository;
+import com.nks.quotejava2.model.mysql.Login;
+import com.nks.quotejava2.repositories.mysql.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
