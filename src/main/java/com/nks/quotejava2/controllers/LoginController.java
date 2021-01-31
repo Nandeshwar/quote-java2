@@ -1,6 +1,6 @@
-package com.nks.quotejava2.controller;
+package com.nks.quotejava2.controllers;
 
-import com.nks.quotejava2.model.mysql.Login;
+import com.nks.quotejava2.models.mysql.Login;
 import com.nks.quotejava2.services.InfoSqliteService;
 import com.nks.quotejava2.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;

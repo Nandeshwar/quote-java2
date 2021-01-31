@@ -52,7 +52,7 @@ public class MySqlConfig {
 
         return primaryEntityManagerFactoryBuilder
                 .dataSource(primaryDataSource)
-                .packages("com.nks.quotejava2.model.mysql")
+                .packages("com.nks.quotejava2.models.mysql")
                 .persistenceUnit("primaryDataSource")
                 .properties(primaryJpaProperties)
                 .build();

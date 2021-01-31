@@ -1,4 +1,4 @@
-package com.nks.quotejava2.model.mysql;
+package com.nks.quotejava2.models.mysql;
 
 import javax.persistence.*;
 

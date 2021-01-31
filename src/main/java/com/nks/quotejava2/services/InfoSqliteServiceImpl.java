@@ -1,6 +1,6 @@
 package com.nks.quotejava2.services;
 
-import com.nks.quotejava2.model.sqlite3.InfoSqlite;
+import com.nks.quotejava2.models.sqlite3.InfoSqlite;
 import com.nks.quotejava2.repositories.sqlite3.InfoSqliteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

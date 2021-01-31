@@ -1,4 +1,4 @@
-package com.nks.quotejava2.model.sqlite3;
+package com.nks.quotejava2.models.sqlite3;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

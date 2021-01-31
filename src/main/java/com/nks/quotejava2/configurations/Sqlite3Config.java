@@ -48,7 +48,7 @@ public class Sqlite3Config {
 
         return secondaryEntityManagerFactoryBuilder
                 .dataSource(sqlite3DataSource)
-                .packages("com.nks.quotejava2.model.sqlite3")
+                .packages("com.nks.quotejava2.models.sqlite3")
                 .persistenceUnit("secondaryDataSource")
                 .properties(sqlite3JpaProperties)
                 .build();
