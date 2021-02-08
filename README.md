@@ -1,3 +1,27 @@
+## Install Open JDK 15
+
+```
+1. https://jdk.java.net/
+2. download tar file. unzip it and copy it to : /Library/Java/JavaVirtualMachines
+3. check java 15 availability in you local machine
+terminal> /usr/libexec/java_home -v15
+/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
+
+4. export path in any of these given file : 
+~/.zshrc
+~/.zprofile
+~/.bash_profile
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
+```
+
+## Intall Maven
+
+```
+1. brew install maven
+2. echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+```
+
 ## Create jar file and run jar file
 
 ```
