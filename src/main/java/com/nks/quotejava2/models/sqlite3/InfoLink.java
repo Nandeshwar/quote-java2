@@ -1,23 +1,24 @@
 package com.nks.quotejava2.models.sqlite3;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "info")
-public class InfoSqlite {
+@Table(name = "info_link")
+public class InfoLink {
     @Id
     private long id;
 
-    private String title;
-    private String info;
+    @Column(name = "link_id")
+    private int linkId;
+    private String link;
+
     @Column(name = "created_at")
     private String createdAt;
     @Column(name = "updated_at")
     private String updatedAt;
-
-    @Transient
-    private List<InfoLink> infoLinks;
 
     public long getId() {
         return id;
@@ -27,20 +28,20 @@ public class InfoSqlite {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public int getLinkId() {
+        return linkId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLinkId(int linkId) {
+        this.linkId = linkId;
     }
 
-    public String getInfo() {
-        return info;
+    public String getLink() {
+        return link;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getCreatedAt() {
@@ -57,13 +58,5 @@ public class InfoSqlite {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public List<InfoLink> getInfoLinks() {
-        return infoLinks;
-    }
-
-    public void setInfoLinks(List<InfoLink> infoLinks) {
-        this.infoLinks = infoLinks;
     }
 }
