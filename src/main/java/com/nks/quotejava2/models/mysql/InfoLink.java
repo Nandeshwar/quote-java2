@@ -2,25 +2,23 @@ package com.nks.quotejava2.models.mysql;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-@Entity
-public class Info {
-    @Id()
+@Entity(name = "info_link")
+public class InfoLink {
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
 
-    private String title;
-    private String info;
+    private String link;
     @Column(name = "created_at")
     private Date createdAt;
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    @OneToMany(mappedBy = "info")
-    private List<InfoLink> infoLink = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "link_id")
+    private Info info;
 
     public BigInteger getId() {
         return id;
@@ -30,20 +28,12 @@ public class Info {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getLink() {
+        return link;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public Date getCreatedAt() {
@@ -62,11 +52,11 @@ public class Info {
         this.updatedAt = updatedAt;
     }
 
-    public List<InfoLink> getInfoLink() {
-        return infoLink;
+    public Info getInfo() {
+        return info;
     }
 
-    public void setInfoLink(List<InfoLink> infoLink) {
-        this.infoLink = infoLink;
+    public void setInfo(Info info) {
+        this.info = info;
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InfoLinkServiceImpl implements InfoLinkService {
+public class InfoLinkSqlite3ServiceImpl implements InfoLinkSqlite3Service {
     @Autowired
     InfoLinkRepository infoLinkRepository;
 

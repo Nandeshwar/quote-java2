@@ -25,7 +25,7 @@ CREATE TABLE quotedb.`info` (
     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE quotedb.`info_link2` (
+CREATE TABLE quotedb.`info_link` (
     `id` bigint PRIMARY KEY,
     `link_id` bigint,
     `link` VARCHAR(100),
