@@ -1,30 +1,38 @@
 package com.nks.quotejava2.models.mysql;
 
+import org.springframework.data.domain.Persistable;
+
 import javax.persistence.*;
-import java.math.BigInteger;
+import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "info_link")
-public class InfoLink {
+@Entity
+@Table(name = "info_link")
+public class InfoLink implements Serializable, Persistable<Long> {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private BigInteger id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String link;
-    @Column(name = "created_at")
+    @Column(name = "created_at", insertable = false, updatable = false)
     private Date createdAt;
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", insertable = false, updatable = false)
     private Date updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "link_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "link_id", referencedColumnName = "id", insertable = true, updatable = true)
     private Info info;
 
-    public BigInteger getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    @Override
+    public boolean isNew() {
+        return true;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
