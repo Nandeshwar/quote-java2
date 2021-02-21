@@ -4,4 +4,5 @@ import com.nks.quotejava2.models.mysql.Info;
 import org.springframework.data.repository.CrudRepository;
 
 public interface InfoRepository extends CrudRepository<Info, Long> {
+    Info findFirstInfoByTitleAndInfo(String title, String Info);
 }

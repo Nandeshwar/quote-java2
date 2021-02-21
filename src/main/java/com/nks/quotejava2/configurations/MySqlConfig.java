@@ -48,8 +48,8 @@ public class MySqlConfig {
 
         Map<String, String> primaryJpaProperties = new HashMap<>();
         primaryJpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-        primaryJpaProperties.put("hibernate.hbm2ddl.auto", "create");
-        //primaryJpaProperties.put("hibernate.hbm2ddl.auto", "update");
+//        primaryJpaProperties.put("hibernate.hbm2ddl.auto", "create");
+        primaryJpaProperties.put("hibernate.hbm2ddl.auto", "update");
 
         return primaryEntityManagerFactoryBuilder
                 .dataSource(primaryDataSource)

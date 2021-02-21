@@ -21,9 +21,6 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-//        Login login = loginService.firstByUserAndPassword("Radha", "Krishna");
-//        System.out.println("--------> " + login.getUser());
-//
         try {
             dataMigrationService.migrateDataFromSqlite3ToMySql();
         } catch (Exception e) {

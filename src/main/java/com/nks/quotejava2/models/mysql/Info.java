@@ -1,16 +1,13 @@
 package com.nks.quotejava2.models.mysql;
 
-import org.springframework.data.domain.Persistable;
-
 import javax.persistence.*;
-import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 @Entity
 @Table(name = "info")
-public class Info implements Serializable, Persistable<Long> {
+public class Info {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -19,21 +16,18 @@ public class Info implements Serializable, Persistable<Long> {
     private String title;
     @Column(length = 10000)
     private String info;
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private Date createdAt;
-    @Column(name = "updated_at", insertable = false, updatable = false)
-    private Date updatedAt;
+    
+    // @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at")
+    private ZonedDateTime createdAt;
+    @Column(name = "updated_at")
+    private ZonedDateTime updatedAt;
 
     @OneToMany(mappedBy = "info", cascade = CascadeType.ALL)
     private Collection<InfoLink> infoLink = new ArrayList<>();
 
     public Long getId() {
         return id;
-    }
-
-    @Override
-    public boolean isNew() {
-        return true;
     }
 
     public void setId(Long id) {
@@ -56,19 +50,19 @@ public class Info implements Serializable, Persistable<Long> {
         this.info = info;
     }
 
-    public Date getCreatedAt() {
+    public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public ZonedDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(ZonedDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

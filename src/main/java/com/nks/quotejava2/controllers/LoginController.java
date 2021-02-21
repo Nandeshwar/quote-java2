@@ -22,13 +22,6 @@ public class LoginController {
         Login loginInfo = loginService.firstByUserAndPassword("Radha", "Krishna");
         System.out.println("login info user=" + loginInfo.getUser());
 
-
-        System.out.println("Begin.........Sqlite3 info......");
-        infoSqliteService.findAll().forEach(v ->
-                System.out.println(String.format("title = %s, creationDate=%s", v.getTitle(), v.getCreatedAt())));
-
-        System.out.println("End.........Sqlite3 info......");
-
         return "login";
     }
 }

@@ -1,5 +1,6 @@
 package com.nks.quotejava2.services;
 
+import com.nks.quotejava2.models.mysql.Info;
 import com.nks.quotejava2.repositories.mysql.InfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,8 +11,7 @@ public class InfoServiceImpl implements InfoService {
     InfoRepository infoRepository;
 
     @Override
-    public int saveInfo() {
-        //infoRepository.sa
-        return 0;
+    public Info findFirstInfoByTitleAndInfo(String title, String info) {
+        return infoRepository.findFirstInfoByTitleAndInfo(title, info);
     }
 }
