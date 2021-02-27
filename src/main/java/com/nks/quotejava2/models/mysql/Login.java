@@ -3,10 +3,11 @@ package com.nks.quotejava2.models.mysql;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "login")
 public class Login {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "user")
     private String user;
