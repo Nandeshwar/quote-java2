@@ -12,7 +12,7 @@
     <artifactId>quote-java2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>quote-java2</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Quote</description>
 
     <properties>
         <java.version>15</java.version>
@@ -93,6 +93,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
