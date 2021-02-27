@@ -48,7 +48,7 @@ docker run -p 19225:19225 nandeshwar/quote-java2
 ## Check the application
 
 ```
-http://localhost:19225/nks
+http://localhost:19225/api/v1/status
 ```
 
 #### MySql Database setup in local using docker container
@@ -120,6 +120,12 @@ https://mmafrar.medium.com/configuring-multiple-data-sources-with-spring-boot-2-
 2. Add different package for repository for each database
 3. Add different config for each database
 4. Make 1 Primary datasource.
+```
+
+#### Swagger UI
+
+```
+http://localhost:19225/swagger-ui/
 ```
 
 

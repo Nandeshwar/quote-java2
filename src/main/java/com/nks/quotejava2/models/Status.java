@@ -1,6 +1,9 @@
 package com.nks.quotejava2.models;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class Status {
+    @ApiModelProperty(notes = "Name of the application")
     private String appName;
     private String appVer;
     private String appStatus;
