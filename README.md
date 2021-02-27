@@ -128,6 +128,25 @@ https://mmafrar.medium.com/configuring-multiple-data-sources-with-spring-boot-2-
 http://localhost:19225/swagger-ui/
 ```
 
+#### To Run test
+
+```
+mvn clean test
+```
+
+#### To verify unit-test coverage is minimum as given in pom file
+
+```
+mvn clean verify
+```
+
+#### To view unit-test coverage report
+
+```
+mvn clean test
+/Users/nandeshwar.sah/javaprj/quote-java2/target/coverage-report/index.html
+```
+
 
 
 
