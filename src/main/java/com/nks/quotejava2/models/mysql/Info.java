@@ -9,14 +9,14 @@ import java.util.Collection;
 @Table(name = "info")
 public class Info {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String title;
     @Column(length = 10000)
     private String info;
-    
+
     // @Column(name = "created_at", insertable = false, updatable = false)
     @Column(name = "created_at")
     private ZonedDateTime createdAt;

@@ -1,8 +1,10 @@
-DROP TABLE IF EXISTS `hibernate_sequence`;
+DROP TABLE IF EXISTS quotedb.`hibernate_sequence`;
 
 CREATE TABLE quotedb.`hibernate_sequence` (
   `next_val` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
+
+INSERT INTO quotedb.hibernate_sequence(next_val) VALUES (1);
 
 --
 -- Table structure for table `login`
@@ -15,12 +17,14 @@ CREATE TABLE quotedb.`login` (
   `password` varchar(255) DEFAULT NULL,
   `user` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
+
+
 
 CREATE TABLE quotedb.`info` (
     `id` bigint PRIMARY KEY,
-    `title` VARCHAR(200) NOT NULL,
-    `info` VARCHAR(1000) NOT NULL,
+    `title` VARCHAR(255) NOT NULL,
+    `info` VARCHAR(10000) NOT NULL,
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -28,7 +32,7 @@ CREATE TABLE quotedb.`info` (
 CREATE TABLE quotedb.`info_link` (
     `id` bigint PRIMARY KEY,
     `link_id` bigint,
-    `link` VARCHAR(100),
+    `link` VARCHAR(255),
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(link_id) REFERENCES INFO(ID)

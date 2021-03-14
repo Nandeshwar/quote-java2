@@ -7,7 +7,8 @@ import java.time.ZonedDateTime;
 @Table(name = "info_link")
 public class InfoLink {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String link;
