@@ -28,7 +28,6 @@ class QuoteJava2ApplicationTests {
 
     @Test
     void contextLoads() throws Exception {
-//        QuoteJava2Application.main(new String[]{});
         when(dataMigrationService.migrateDataFromSqlite3ToMySql()).thenReturn(true);
         assertThat(statusController).isNotNull();
     }
