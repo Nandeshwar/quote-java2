@@ -37,7 +37,7 @@ public class DataMigrationServiceImpl<copySqlite3InfoToMySqlInfo> implements Dat
     InfoService infoService;
 
     @Override
-    public void migrateDataFromSqlite3ToMySql() throws Exception {
+    public Boolean migrateDataFromSqlite3ToMySql() throws Exception {
         Stream<InfoSqlite> allInfoFrmoSqlite3 = StreamSupport.stream(infoSqliteService.findAll().spliterator(), false);
         List<Info> InfoListForMySql = allInfoFrmoSqlite3
                 .map((infoSqlite3) -> copySqlite3InfoToMySqlInfo(infoSqlite3))
@@ -47,6 +47,7 @@ public class DataMigrationServiceImpl<copySqlite3InfoToMySqlInfo> implements Dat
 
         // Save all to database
         infoRepository.saveAll(InfoListForMySql);
+        return true;
     }
 
     Info copySqlite3InfoToMySqlInfo(InfoSqlite infoSqlite) {

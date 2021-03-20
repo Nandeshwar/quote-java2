@@ -2,6 +2,7 @@ package com.nks.quotejava2.controllers;
 
 import com.nks.quotejava2.models.Status;
 import com.nks.quotejava2.models.UpTime;
+import com.nks.quotejava2.services.DataMigrationService;
 import com.nks.quotejava2.services.StatusService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,9 +35,13 @@ public class StatusControllerTest {
     @MockBean
     private StatusService statusService;
 
+    @MockBean
+    DataMigrationService dataMigrationService;
+
     @Test
     @DisplayName("success: test status endpoint")
     public void appInfoTest() throws Exception {
+        when(dataMigrationService.migrateDataFromSqlite3ToMySql()).thenReturn(true);
 
         Status statusObj = new Status();
         statusObj.setAppName("Quote");
