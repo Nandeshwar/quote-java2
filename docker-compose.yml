@@ -1,15 +1,37 @@
-version: '3'
+version: '3.2'
 services:
-  mysql:
-    image: mysql:8.0
+  quote2-mysql:
+    #    image: mysql:8.0
     container_name: quote2-mysql
     restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.MySql
+    command: [ 'mysqld' ]
     environment:
       MYSQL_USER: Radha
       MYSQL_PASSWORD: Krishna
       MYSQL_ROOT_PASSWORD: Krishna
+      MYSQL_DATABASE: quotedb
     ports:
       - "3306:3306"
+    security_opt:
+      - seccomp:unconfined
     volumes:
-      - ~/dev/dockers/mysql:/docker-entrypoint-initdb.d
       - ~/dev/dockers/mysql:/var/lib/mysql
+
+#  quote2-java:
+#    image: nandeshwar/quote2-java
+#    container_name: quote2-java
+#    build:
+#      context: ./
+#      dockerfile: "Dockerfile"
+#    ports:
+#      - "19225:19225"
+#    environment:
+#      - CONFIG_LOCATION=file:/application.docker.properties
+#    stdin_open: true
+#    depends_on:
+#      - quote2-mysql
+#
+#    restart: always
