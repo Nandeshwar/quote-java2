@@ -1,6 +1,7 @@
 version: '3.2'
 services:
   quote2-mysql:
+    # disabling line below as image info is given in file - Dockerfile.MySql
     #    image: mysql:8.0
     container_name: quote2-mysql
     restart: always
@@ -20,18 +21,16 @@ services:
     volumes:
       - ~/dev/dockers/mysql:/var/lib/mysql
 
-#  quote2-java:
-#    image: nandeshwar/quote2-java
-#    container_name: quote2-java
-#    build:
-#      context: ./
-#      dockerfile: "Dockerfile"
-#    ports:
-#      - "19225:19225"
-#    environment:
-#      - CONFIG_LOCATION=file:/application.docker.properties
-#    stdin_open: true
-#    depends_on:
-#      - quote2-mysql
-#
-#    restart: always
+  quote2-java:
+    image: nandeshwar/quote2-java
+    container_name: quote2-java
+    build:
+      context: ./
+      dockerfile: "Dockerfile"
+    ports:
+      - "19225:19225"
+    stdin_open: true
+    depends_on:
+      - quote2-mysql
+
+    restart: always

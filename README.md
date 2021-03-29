@@ -30,6 +30,14 @@ mvn clean
 java -jar target/quote-java2-0.0.1-SNAPSHOT.jar
 ```
 
+## To run the project as docker container
+
+```
+docker-compose up -d
+```
+
+Note: http://localhost:19226  : port 19226 is used in docker container
+
 ## To run the project
 
 ```
