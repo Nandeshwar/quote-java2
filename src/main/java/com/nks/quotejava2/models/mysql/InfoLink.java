@@ -17,7 +17,7 @@ public class InfoLink {
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "link_id", referencedColumnName = "id", insertable = true, updatable = true)
     private Info info;
 

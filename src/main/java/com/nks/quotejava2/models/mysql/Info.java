@@ -1,5 +1,7 @@
 package com.nks.quotejava2.models.mysql;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "info")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "infoLink"})
 public class Info {
     @Id
     @Column(name = "id")
@@ -23,7 +26,7 @@ public class Info {
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @OneToMany(mappedBy = "info", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "info", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Collection<InfoLink> infoLink = new ArrayList<>();
 
     public Long getId() {

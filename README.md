@@ -155,6 +155,12 @@ mvn clean test
 /Users/nandeshwar.sah/javaprj/quote-java2/target/coverage-report/index.html
 ```
 
+## All API
 
+```
+http://localhost:19225/api/v1/status
+http://localhost:19225/api/v1/info/1
+http://localhost:19225/api/v1/info?page=0&size=100
+```
 
 
