@@ -28,7 +28,7 @@ services:
       context: ./
       dockerfile: "Dockerfile"
     ports:
-      - "19225:19225"
+      - "19226:19226"
     stdin_open: true
     depends_on:
       - quote2-mysql
