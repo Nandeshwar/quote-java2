@@ -1,5 +1,7 @@
 package com.nks.quotejava2.models.mysql;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 
@@ -17,8 +19,10 @@ public class InfoLink {
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "link_id", referencedColumnName = "id", insertable = true, updatable = true)
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+    // @JoinColumn(name = "link_id", referencedColumnName = "id", insertable = true, updatable = true)
+    @JoinColumn(name = "link_id")
     private Info info;
 
     public Long getId() {
