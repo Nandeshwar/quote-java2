@@ -1,14 +1,6 @@
 package com.nks.quotejava2;
 
-import com.nks.quotejava2.controllers.StatusController;
-import com.nks.quotejava2.services.DataMigrationService;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-
+/*
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -32,4 +24,29 @@ class QuoteJava2ApplicationTests {
         assertThat(statusController).isNotNull();
     }
 
+}
+ */
+
+import com.nks.quotejava2.controllers.StatusController;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@ExtendWith(MockitoExtension.class)
+class QuoteJava2ApplicationTests {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @InjectMocks
+    StatusController statusController;
+
+    @Test
+    void contextLoads() throws Exception {
+        assertThat(statusController).isNotNull();
+    }
 }
