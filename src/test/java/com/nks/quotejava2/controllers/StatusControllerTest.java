@@ -77,8 +77,8 @@ public class StatusControllerTest {
 import com.nks.quotejava2.models.Status;
 import com.nks.quotejava2.models.UpTime;
 import com.nks.quotejava2.services.StatusService;
+import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
