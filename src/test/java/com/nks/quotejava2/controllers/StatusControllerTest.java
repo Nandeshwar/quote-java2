@@ -74,14 +74,17 @@ public class StatusControllerTest {
 }
 */
 
+import com.nks.quotejava2.configurations.MySqlConfig;
 import com.nks.quotejava2.models.Status;
 import com.nks.quotejava2.models.UpTime;
 import com.nks.quotejava2.services.StatusService;
-import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -99,6 +102,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(StatusController.class)
 public class StatusControllerTest {
+    @Autowired
+    MySqlConfig mySqlConfig;
+
+    @Autowired
+    EntityManagerFactoryBuilder e;
+
+    @Autowired
+    private TestEntityManager entityManager;
+
     @Autowired
     private MockMvc mockMvc;
 
