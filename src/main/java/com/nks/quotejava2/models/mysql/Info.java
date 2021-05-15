@@ -10,7 +10,7 @@ import java.util.Collection;
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "infoLink"})
 public class Info {
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -24,7 +24,7 @@ public class Info {
     @Column(name = "updated_at")
     private ZonedDateTime updatedAt;
 
-    @OneToMany(mappedBy = "info", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "info", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<InfoLink> infoLink = new ArrayList<>();
 
     public Long getId() {

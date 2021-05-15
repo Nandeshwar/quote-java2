@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 @Table(name = "info_link")
 public class InfoLink {
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -20,7 +20,7 @@ public class InfoLink {
     private ZonedDateTime updatedAt;
 
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "link_id", referencedColumnName = "id", insertable = true, updatable = true)
     private Info info;
 

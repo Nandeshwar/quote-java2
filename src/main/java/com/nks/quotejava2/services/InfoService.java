@@ -10,4 +10,6 @@ public interface InfoService {
     List<Info> findAllInfo(int page, int size);
 
     Info findInfoById(Long id);
+
+    Long updateInfo(Long id, Info info);
 }
